@@ -1,8 +1,7 @@
 <template>
   <div>
     <div>{{todo}}</div>
-    <button id="myWiggle" v-on:click="reverseMessage">Clicked {{ count }} times</button>
-    <p id="texterino">{{ message }}</p>
+    <button id="myWiggle" class="btn btn-danger" v-on:click="reverseMessage">Clicked {{ count }} times</button>
     <h1>GreenSock's TextPlugin<span></span></h1>
   </div>
 </template>
@@ -15,7 +14,6 @@ export default {
   props: ["todo"],
   data: function () {
     return {
-      message: "Top kek",
       count: 0
     };
   },

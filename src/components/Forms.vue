@@ -6,7 +6,7 @@
         <input v-model.number="number" type="number" step="50">
         <p>{{animatedNumber}}</p>
         <p id="animatrix"></p>
-        <input />
+        <input v-placeholder class="form-control-sm" />
     </div>
 </template>
 
@@ -14,6 +14,13 @@
 
 import { TweenLite } from "gsap/TweenMax";
 import TextPlugin from "gsap/TextPlugin";
+import Vue from 'vue';
+
+Vue.directive('placeholder', {
+    inserted: function(el) {
+        el.placeholder = "From placeholder directive";
+    }
+});
 
 export default {
     name: "Forms",
