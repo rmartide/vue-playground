@@ -31,7 +31,7 @@ export default {
     },
     computed: {
         animatedNumber: function () {
-            return this.tweenedNumber;
+            return this.tweenedNumber.toFixed(0);
         }
     },
     watch: {
