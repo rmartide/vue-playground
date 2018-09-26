@@ -23,6 +23,10 @@ export default {
   display: inline-block;
   &--themed {
     background-color: gray;
-  }
+  };
+  &__tasks {
+      color: white;
+      text-align: left;
+  };
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div>
         <h3>Todo</h3>
-        <CustomInput />
-        <ul>
+        <CustomInput v-model="todoTask" @keyup.enter="addTask"/>
+        <ul class="rml-list__tasks">
             <TodoListItem v-for="task in tasks" :key="task.id" :task="task">
             </TodoListItem>
         </ul>
@@ -26,6 +26,11 @@ export default {
             ],
             todoTask: '',
             idCounter: 0
+        }
+    },
+    methods: {
+        addTask() {
+            console.log(this.todoTask);
         }
     }
 }
