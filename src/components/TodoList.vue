@@ -3,7 +3,7 @@
         <h3>Todo</h3>
         <CustomInput v-model="todoTask" @keyup.enter="addTask"/>
         <ul class="rml-list__tasks">
-            <TodoListItem v-for="task in tasks" :key="task.id" :task="task">
+            <TodoListItem v-for="task in tasks" :key="task.id" :task="task" @deltask="delTask">
             </TodoListItem>
         </ul>
     </div>
@@ -33,6 +33,9 @@ export default {
     methods: {
         addTask() {
             this.tasks.push({ text: this.todoTask, id: idCounter++});
+        },
+        delTask(task) {
+            this.tasks.splice(this.tasks.indexOf(task), 1);
         }
     }
 }
