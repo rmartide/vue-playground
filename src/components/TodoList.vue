@@ -1,7 +1,7 @@
 <template>
     <div class="rml-list rml-list--themed">
         <h3>Todo Tasks</h3>
-        <CustomInput v-focus v-model="todoTask" @keyup.enter="addTask"/>
+        <CustomInput v-focus v-model="todoTask" @keyup.enter="addTask" />
         <ul class="rml-list__tasks">
             <TodoListItem v-for="task in tasks" :key="task.id" :task="task" @deltask="delTask">
             </TodoListItem>
@@ -34,14 +34,16 @@ export default {
     },
     methods: {
         addTask() {
-            this.tasks.push({ text: this.todoTask, id: idCounter++});
-            this.todoTask = '';
+            if (this.todoTask) {
+                this.tasks.push({ text: this.todoTask, id: idCounter++ });
+                this.todoTask = '';
+            }
         },
         delTask(task) {
             // this.tasks.splice(this.tasks.indexOf(task), 1);
-            TweenLite.to(`#task-${task.id}`, 0, {textDecoration: 'line-through'});
-            TweenLite.to(`#task-${task.id}`, 1, {display: 'none', opacity: 0, delay: 0.5})
-            .eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
+            TweenLite.to(`#task-${task.id}`, 0, { textDecoration: 'line-through' });
+            TweenLite.to(`#task-${task.id}`, 1, { display: 'none', opacity: 0, delay: 0.5 })
+                .eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
         }
     }
 }
