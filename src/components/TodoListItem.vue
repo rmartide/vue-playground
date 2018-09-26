@@ -1,5 +1,7 @@
 <template>
-    <li :id="'task-' + task.id">{{task.text}} <button v-on:click="$emit('deltask', task);">x</button></li>
+    <li :id="'task-' + task.id">
+        <input type="checkbox" @change="$emit('deltask', task);"> {{task.text}}
+    </li>
 </template>
 
 <script>

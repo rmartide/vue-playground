@@ -26,8 +26,9 @@ export default {
         return {
             todoTask: '',
             tasks: [
-                { text: 'Master vue', id: idCounter++ },
-                { text: 'Eat a bocadillo', id: idCounter++ }
+                { text: 'Adding animation when the task is added', id: idCounter++ },
+                { text: 'Use a checkbox on the left instead of a button', id: idCounter++ },
+                { text: 'Extend the input and add some css', id: idCounter++ }
             ]
         }
     },
@@ -38,8 +39,8 @@ export default {
         delTask(task) {
             // this.tasks.splice(this.tasks.indexOf(task), 1);
             TweenLite.to(`#task-${task.id}`, 0, {textDecoration: 'line-through'});
-            var animation = TweenLite.to(`#task-${task.id}`, 1, {display: 'none', opacity: 0, delay: 0.5});
-            animation.eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
+            TweenLite.to(`#task-${task.id}`, 1, {display: 'none', opacity: 0, delay: 0.5})
+            .eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
         }
     }
 }
