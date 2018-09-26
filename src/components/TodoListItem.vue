@@ -1,9 +1,7 @@
 <template>
-    <transition appear name="custom-classes-transition" enter-active-class="animated rubberBand">
-        <li :id="'task-' + task.id">
-            <input type="checkbox" @change="$emit('deltask', task);"> {{task.text}}
-        </li>
-    </transition>
+    <li :id="'task-' + task.id">
+        <input type="checkbox" @change="$emit('deltask', task);"> {{task.text}}
+    </li>
 </template>
 
 <script>

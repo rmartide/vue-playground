@@ -2,10 +2,10 @@
     <div class="rml-list rml-list--themed">
         <h3>Todo Tasks</h3>
         <CustomInput v-focus v-model="todoTask" @keyup.enter="addTask" />
-        <ul class="rml-list__tasks">
+        <transition-group appear name="custom-classes-transition" enter-active-class="animated rubberBand" class="rml-list__tasks" tag="ul">
             <TodoListItem v-for="task in tasks" :key="task.id" :task="task" @deltask="delTask">
             </TodoListItem>
-        </ul>
+        </transition-group>
     </div>
 </template>
 
