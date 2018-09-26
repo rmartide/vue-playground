@@ -6,9 +6,14 @@
 export default {
     name: 'CustomInput',
     inheritAttrs: false,
-    props: ['value'],
+    props: {
+        value: {
+            type: String,
+            default: ''
+        }
+    },
     computed: {
-        inputListeners: function () {
+        inputListeners() {
             return {
                 ...this.$listeners,
                 input: event => this.$emit('input', event.target.value)

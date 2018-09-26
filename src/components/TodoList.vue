@@ -12,6 +12,9 @@
 <script>
 import TodoListItem from './TodoListItem';
 import CustomInput from './CustomInput';
+
+let idCounter = 1;
+
 export default {
     name: 'TodoList',
     components: {
@@ -20,17 +23,16 @@ export default {
     },
     data() {
         return {
-            tasks: [
-                { text: 'Master vue', id: 2 },
-                { text: 'Eat a bocadillo', id: 1 }
-            ],
             todoTask: '',
-            idCounter: 0
+            tasks: [
+                { text: 'Master vue', id: idCounter++ },
+                { text: 'Eat a bocadillo', id: idCounter++ }
+            ]
         }
     },
     methods: {
         addTask() {
-            console.log(this.todoTask);
+            this.tasks.push({ text: this.todoTask, id: idCounter++});
         }
     }
 }
