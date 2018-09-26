@@ -35,6 +35,7 @@ export default {
     methods: {
         addTask() {
             this.tasks.push({ text: this.todoTask, id: idCounter++});
+            this.todoTask = '';
         },
         delTask(task) {
             // this.tasks.splice(this.tasks.indexOf(task), 1);
