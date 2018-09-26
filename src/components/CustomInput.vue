@@ -1,5 +1,5 @@
 <template>
-    <input v-focus id="rml-custom-input" :value="value" v-bind="$attrs" v-on="inputListeners" />
+    <input id="rml-custom-input" :value="value" v-bind="$attrs" v-on="inputListeners" />
 </template>
 
 <script>

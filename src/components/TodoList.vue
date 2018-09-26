@@ -1,7 +1,7 @@
 <template>
     <div class="rml-list rml-list--themed">
         <h3>Todo Tasks</h3>
-        <CustomInput v-model="todoTask" @keyup.enter="addTask"/>
+        <CustomInput v-focus v-model="todoTask" @keyup.enter="addTask"/>
         <ul class="rml-list__tasks">
             <TodoListItem v-for="task in tasks" :key="task.id" :task="task" @deltask="delTask">
             </TodoListItem>
