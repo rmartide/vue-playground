@@ -12,6 +12,7 @@
 <script>
 import TodoListItem from './TodoListItem';
 import CustomInput from './CustomInput';
+import { TweenLite } from "gsap/TweenMax";
 
 let idCounter = 1;
 
@@ -35,7 +36,10 @@ export default {
             this.tasks.push({ text: this.todoTask, id: idCounter++});
         },
         delTask(task) {
-            this.tasks.splice(this.tasks.indexOf(task), 1);
+            // this.tasks.splice(this.tasks.indexOf(task), 1);
+            TweenLite.to(`#task-${task.id}`, 0, {textDecoration: 'line-through'});
+            var animation = TweenLite.to(`#task-${task.id}`, 1, {display: 'none', opacity: 0, delay: 0.5});
+            animation.eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
         }
     }
 }
