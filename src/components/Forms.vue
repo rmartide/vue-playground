@@ -1,7 +1,7 @@
 <template>
     <div>
         {{title}}
-        <input v-focus v-model="title">
+        <input v-model="title" v-focus>
         <button v-on:click="alertWritten">alert</button>
         <input v-model.number="number" type="number" step="50">
         <p>{{animatedNumber}}</p>
@@ -14,16 +14,10 @@
 
 import { TweenLite } from "gsap/TweenMax";
 import TextPlugin from "gsap/TextPlugin";
-import Vue from 'vue';
-
-Vue.directive('placeholder', function (el) {
-    //Without specifying the hook is the same on bind and update
-    el.placeholder = "From placeholder directive";
-});
 
 export default {
     name: "Forms",
-    data () {
+    data() {
         return {
             title: "We forms boyz",
             number: 0,
@@ -49,10 +43,9 @@ export default {
         }
     },
     directives: {
-        focus: {
-            inserted: (el) => {
-                el.focus();
-            }
+        placeholder: function (el) {
+            //Without specifying the hook is the same on bind and update
+            el.placeholder = "From placeholder directive";
         }
     }
 };

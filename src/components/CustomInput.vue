@@ -1,8 +1,10 @@
 <template>
-    <input :value="value" v-bind="$attrs" v-on="inputListeners" />
+    <input v-focus id="rml-custom-input" :value="value" v-bind="$attrs" v-on="inputListeners" />
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
     name: 'CustomInput',
     inheritAttrs: false,
@@ -24,4 +26,10 @@ export default {
 </script>
 
 <style>
+    #rml-custom-input {
+        width: 100%;
+        border: 2px solid brown;
+        padding: 5px;
+        border-radius: 5px;
+    }
 </style>
