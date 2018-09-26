@@ -16,15 +16,14 @@ import { TweenLite } from "gsap/TweenMax";
 import TextPlugin from "gsap/TextPlugin";
 import Vue from 'vue';
 
-Vue.directive('placeholder', {
-    inserted: function(el) {
-        el.placeholder = "From placeholder directive";
-    }
+Vue.directive('placeholder', function (el) {
+    //Without specifying the hook is the same on bind and update
+    el.placeholder = "From placeholder directive";
 });
 
 export default {
     name: "Forms",
-    data: function () {
+    data () {
         return {
             title: "We forms boyz",
             number: 0,
@@ -46,7 +45,7 @@ export default {
             TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue });
         },
         title: function (newValue) {
-            TweenLite.to("#animatrix", 2, { text: newValue, delimiter: " "});
+            TweenLite.to("#animatrix", 2, { text: newValue, delimiter: " " });
         }
     },
     directives: {
