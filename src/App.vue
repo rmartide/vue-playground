@@ -44,8 +44,14 @@ export default {
     SassyCSS
   },
   mounted: function () {
+    //const logo = document.getElementById('logo');
+    const logoWidth = 200;
+    const max = screen.width - logoWidth;
+    const scale = 0.3;
+    const scaledObjectWidth = logoWidth * scale;
+    const half = (max - scaledObjectWidth) / 2;
     TweenMax.to("#logo", 2, {
-      left: '87.5%',
+      x: max,
       rotation: 360,
       ease: Bounce.easeOut,
       scale: 0.5,
@@ -55,7 +61,7 @@ export default {
       padding: 30
     });
     TweenMax.to("#logo", 3, {
-      left: '41%',
+      x: half,
       rotation: -360,
       ease: Elastic.easeOut.config(1, 0.3),
       scale: 0.3,
