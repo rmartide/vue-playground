@@ -28,7 +28,8 @@ export default {
             tasks: [
                 { text: 'Adding animation when the task is added', id: idCounter++ },
                 { text: 'Use a checkbox on the left instead of a button', id: idCounter++ },
-                { text: 'Extend the input and add some css', id: idCounter++ }
+                { text: 'Extend the input and add some css', id: idCounter++ },
+                { text: 'Try to add a delete animation with transition-group', id: idCounter++ }
             ]
         }
     },
