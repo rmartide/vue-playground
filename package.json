@@ -2,7 +2,7 @@
   "name": "app-playground",
   "version": "0.1.0",
   "engines": {
-    "node":"10.11.0"
+    "node": "10.11.0"
   },
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "SET PORT=3000 && node src/server/server.js",
-    "postinstall": "node src/cheat.js && \"npm run build\""
+    "postinstall": "node src/cheat.js && npm run build"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
