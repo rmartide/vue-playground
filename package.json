@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "SET PORT=3000 && node src/server/server.js",
+    "start": "node src/server/server.js",
     "postinstall": "node src/cheat.js && npm run build"
   },
   "dependencies": {
