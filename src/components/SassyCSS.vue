@@ -31,5 +31,8 @@ export default {
     margin-bottom: 0;
     margin-top: 10px;
   }
+  &__header {
+    text-align: center;
+  }
 }
 </style>

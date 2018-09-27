@@ -1,8 +1,8 @@
 <template>
     <div class="rml-list rml-list--themed">
-        <h3>Todo Tasks</h3>
+        <h3 class="rml-list__header">Todo Tasks</h3>
         <CustomInput v-focus v-model="todoTask" @keyup.enter="addTask" />
-        <transition-group appear name="custom-classes-transition" enter-active-class="animated rubberBand" class="rml-list__tasks" tag="ul">
+        <transition-group appear name="custom-classes-transition" enter-active-class="animated fadeIn" v-on:leave="leave" class="rml-list__tasks" tag="ul">
             <TodoListItem v-for="task in tasks" :key="task.id" :task="task" @deltask="delTask">
             </TodoListItem>
         </transition-group>
@@ -41,10 +41,12 @@ export default {
             }
         },
         delTask(task) {
-            // this.tasks.splice(this.tasks.indexOf(task), 1);
-            TweenLite.to(`#task-${task.id}`, 0, { textDecoration: 'line-through' });
-            TweenLite.to(`#task-${task.id}`, 1, { display: 'none', opacity: 0, delay: 0.5 })
-                .eventCallback("onComplete", () => this.tasks.splice(this.tasks.indexOf(task), 1));
+            this.tasks.splice(this.tasks.indexOf(task), 1);
+        },
+        leave(el, done) {
+            TweenLite.to(el, 0, { textDecoration: 'line-through' });
+            TweenLite.to(el, 1, { display: 'none', opacity: 0, delay: 0.25 })
+                .eventCallback("onComplete", done);
         }
     }
 }
