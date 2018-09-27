@@ -1,15 +1,15 @@
 <template>
-    <TodoList />
+  <TodoList />
 </template>
 
 <script>
 import TodoList from './TodoList';
 
 export default {
-    name: 'SassyCSS',
-    components: {
-        TodoList
-    }
+  name: 'SassyCSS',
+  components: {
+    TodoList
+  }
 }
 </script>
 
@@ -19,7 +19,6 @@ export default {
   border-radius: 10px;
   min-width: 250px;
   min-height: 150px;
-  display: inline-block;
   padding: 15px;
   &--themed {
     background-color: gray;
