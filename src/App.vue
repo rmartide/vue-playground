@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row rml-logo-container">
       <img id="logo" alt="Vue logo" src="./assets/logo.png">
     </div>
       <div class="row justify-content-center">
-          <SassyCSS />
+        <SassyCSS />
       </div>
       <div class="row justify-content-center">
         <form>
@@ -45,7 +45,7 @@ export default {
   },
   mounted: function () {
     TweenMax.to("#logo", 2, {
-      x: 1400,
+      left: '87.5%',
       rotation: 360,
       ease: Bounce.easeOut,
       scale: 0.5,
@@ -55,7 +55,7 @@ export default {
       padding: 30
     });
     TweenMax.to("#logo", 3, {
-      x: 700,
+      left: '41%',
       rotation: -360,
       ease: Elastic.easeOut.config(1, 0.3),
       scale: 0.3,
@@ -75,5 +75,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#logo {
+  left: 0;
+  position: absolute;
+}
+
+.rml-logo-container {
+  height: 275px;
 }
 </style>
