@@ -1,2 +1,2 @@
 if(process.env.NODE_ENV !== "production")
-    process.exit
+    process.exit(128);
