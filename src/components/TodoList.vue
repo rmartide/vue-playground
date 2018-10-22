@@ -14,7 +14,6 @@ import TodoListItem from './TodoListItem';
 import CustomInput from './CustomInput';
 import { TweenLite } from "gsap/TweenMax";
 
-let idCounter = 1;
 
 export default {
     name: 'TodoList',
@@ -24,24 +23,25 @@ export default {
     },
     data() {
         return {
-            todoTask: '',
-            tasks: [
-                { text: 'Adding animation when the task is added', id: idCounter++ },
-                { text: 'Use a checkbox on the left instead of a button', id: idCounter++ },
-                { text: 'Extend the input and add some css', id: idCounter++ },
-                { text: 'Try to add a delete animation with transition-group', id: idCounter++ }
-            ]
+            todoTask: ''
         }
     },
+    computed: {
+        tasks() {
+            return this.$store.state.tasks;
+        }
+    }
+    ,
     methods: {
         addTask() {
             if (this.todoTask) {
-                this.tasks.push({ text: this.todoTask, id: idCounter++ });
+                const text = { text: this.todoTask }
+                this.$store.commit('addTask', text);
                 this.todoTask = '';
             }
         },
         delTask(task) {
-            this.tasks.splice(this.tasks.indexOf(task), 1);
+            this.$store.commit('delTask', { task });
         },
         leave(el, done) {
             TweenLite.to(el, 0, { textDecoration: 'line-through' });

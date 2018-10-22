@@ -7,6 +7,9 @@
         <SassyCSS />
       </div>
       <div class="row justify-content-center">
+        <StoreUser />
+      </div>
+      <div class="row justify-content-center">
         <form>
           <input type="checkbox" class="form-check-inline" id="cst" v-model="showTests">
           <label for="cst">Show tests</label>
@@ -27,6 +30,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 import Forms from './components/Forms';
 import SassyCSS from './components/SassyCSS';
+import StoreUser from './components/StoreUser.vue';
 import {
   TweenMax
 } from "gsap/TweenMax";
@@ -41,7 +45,8 @@ export default {
   components: {
     HelloWorld,
     Forms,
-    SassyCSS
+    SassyCSS,
+    StoreUser
   },
   mounted: function () {
     //const logo = document.getElementById('logo');
