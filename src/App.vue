@@ -3,27 +3,29 @@
     <div class="row rml-logo-container">
       <img id="logo" alt="Vue logo" src="./assets/logo.png">
     </div>
-      <div class="row justify-content-center">
-        <SassyCSS />
-      </div>
-      <div class="row justify-content-center">
-        <StoreUser />
-      </div>
-      <div class="row justify-content-center">
-        <form>
-          <input type="checkbox" class="form-check-inline" id="cst" v-model="showTests">
-          <label for="cst">Show tests</label>
-        </form>
-      </div>
-      <div class="row justify-content-center">
-        <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
-          <div v-if="showTests">
-            <HelloWorld todo="Hello world" />
-            <Forms />
-          </div>
-        </transition>
-      </div>
+    <div class="row justify-content-center">
+      <SassyCSS />
     </div>
+    <div class="row justify-content-center">
+      <StoreUser />
+    </div>
+    <div class="row justify-content-center">
+      <form>
+        <input type="checkbox" class="form-check-inline" id="cst" v-model="showTests">
+        <label for="cst">Show tests</label>
+      </form>
+    </div>
+    <div class="row justify-content-center">
+      <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+        <div v-if="showTests">
+          <HelloWorld todo="Hello world" />
+          <Forms />
+        </div>
+      </transition>
+      <button @click="animate">animate</button>
+    </div>
+    <img src="./assets/nyan.png" id="nyan">
+  </div>
 </template>
 
 <script>
@@ -52,6 +54,7 @@ export default {
     //const logo = document.getElementById('logo');
     const logoWidth = 200;
     const max = screen.width - logoWidth;
+    const maxnyan = screen.width - 168;
     const scale = 0.3;
     const scaledObjectWidth = logoWidth * scale;
     const half = (max - scaledObjectWidth) / 2;
@@ -74,6 +77,13 @@ export default {
       backgroundColor: 'black',
       borderColor: 'red'
     });
+  },
+  methods: {
+    animate() {
+      TweenMax.to("#nyan", 0, { display: 'block' });
+      TweenMax.to("#nyan", 0.5, { right: '-250px', top: '-150px' })
+        .eventCallback("onComplete", () => TweenMax.set("#nyan", { clearProps: 'all' }));
+    }
   }
 }
 </script>
@@ -95,5 +105,14 @@ export default {
 
 .rml-logo-container {
   height: 275px;
+}
+
+#nyan {
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  bottom: 0;
+  transform: rotate(-40deg);
+  display: none;
 }
 </style>
