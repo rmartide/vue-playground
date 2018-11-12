@@ -81,7 +81,7 @@ export default {
   methods: {
     animate() {
       TweenMax.to("#nyan", 0, { display: 'block' });
-      TweenMax.to("#nyan", 1.3, { right: '0', top: '0', ease: SlowMo.ease.config(0.20, 0.99, false) })
+      TweenMax.to("#nyan", 2.5, { right: '0', top: '0', ease: SlowMo.ease.config(0.1, 1, false) })
         .eventCallback("onComplete", () => {
           TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
         });
