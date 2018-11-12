@@ -34,7 +34,7 @@ import Forms from './components/Forms';
 import SassyCSS from './components/SassyCSS';
 import StoreUser from './components/StoreUser.vue';
 import {
-  TweenMax
+  TweenMax, SlowMo
 } from "gsap/TweenMax";
 
 export default {
@@ -81,8 +81,13 @@ export default {
   methods: {
     animate() {
       TweenMax.to("#nyan", 0, { display: 'block' });
-      TweenMax.to("#nyan", 0.5, { right: '-250px', top: '-150px' })
-        .eventCallback("onComplete", () => TweenMax.set("#nyan", { clearProps: 'all' }));
+      const x = screen.width / 2;
+      const y = screen.height / -2;
+      //TweenMax.to("#nyan", 0.5, { x: x, y: y, ease: })
+      TweenMax.to("#nyan", 1.3, { right: '0', top: '0', ease: SlowMo.ease.config(0.20, 0.99, false) })
+        .eventCallback("onComplete", () => {
+          TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
+        });
     }
   }
 }
