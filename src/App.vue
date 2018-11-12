@@ -23,6 +23,7 @@
         </div>
       </transition>
       <button @click="animate">animate</button>
+      <button @click="animate2">animate2</button>
     </div>
     <img src="./assets/nyan.png" id="nyan">
   </div>
@@ -81,7 +82,14 @@ export default {
   methods: {
     animate() {
       TweenMax.to("#nyan", 0, { display: 'block' });
-      TweenMax.to("#nyan", 2.5, { right: '0', top: '0', ease: SlowMo.ease.config(0.1, 1, false) })
+      TweenMax.to("#nyan", 1.7, { right: '0', top: '0', ease: SlowMo.ease.config(0.1, 1, false) })
+        .eventCallback("onComplete", () => {
+          TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
+        });
+    },
+    animate2() {
+      TweenMax.to("#nyan", 0, { display: 'block' });
+      TweenMax.to("#nyan", 2, { right: '0', top: '0', ease: SlowMo.ease.config(0.2, 1.2, false) })
         .eventCallback("onComplete", () => {
           TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
         });
