@@ -22,8 +22,15 @@
           <Forms />
         </div>
       </transition>
+    </div>
+    <div class="d-flex justify-content-center">
       <button @click="animate">animate</button>
-      <button @click="animate2">animate2</button>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <form>
+        <input type="checkbox" class="form-check-inline" @click="animate2">
+        <label>Animate on check</label>
+      </form>
     </div>
     <img src="./assets/nyan.png" id="nyan">
   </div>
@@ -87,12 +94,14 @@ export default {
           TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
         });
     },
-    animate2() {
-      TweenMax.to("#nyan", 0, { display: 'block' });
-      TweenMax.to("#nyan", 2, { right: '0', top: '0', ease: SlowMo.ease.config(0.2, 1.2, false) })
-        .eventCallback("onComplete", () => {
-          TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
-        });
+    animate2(event) {
+      if (event.target.checked) {
+        TweenMax.to("#nyan", 0, { display: 'block' });
+        TweenMax.to("#nyan", 2, { right: '0', top: '0', ease: SlowMo.ease.config(0.2, 1.2, false) })
+          .eventCallback("onComplete", () => {
+            TweenMax.set("#nyan", { clearProps: 'all', display: 'none' });
+          });
+      }
     }
   }
 }
