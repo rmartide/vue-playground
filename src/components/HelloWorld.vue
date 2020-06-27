@@ -7,7 +7,7 @@
 </template>
 <script>
 
-import { TweenLite, TimelineMax } from "gsap/TweenMax";
+import { TweenLite, TimelineMax } from "gsap/all";
 import TextPlugin from "gsap/TextPlugin";
 export default {
   name: "HelloWorld",

@@ -12,7 +12,7 @@
 <script>
 import TodoListItem from './TodoListItem';
 import CustomInput from './CustomInput';
-import { TweenLite } from "gsap/TweenMax";
+import { TweenLite } from "gsap/all";
 
 
 export default {

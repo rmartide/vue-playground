@@ -42,8 +42,8 @@ import Forms from './components/Forms';
 import SassyCSS from './components/SassyCSS';
 import StoreUser from './components/StoreUser.vue';
 import {
-  TweenMax, SlowMo
-} from "gsap/TweenMax";
+  TweenMax, SlowMo, Bounce, Elastic
+} from "gsap/all";
 
 export default {
   name: 'app',
